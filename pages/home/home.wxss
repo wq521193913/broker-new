@@ -1,0 +1,11 @@
+/* pages/home/home.wxss */
+
+.btn{
+  width: 250rpx;
+  height: 60rpx;
+  font-size: 18px;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: normal;
+}
