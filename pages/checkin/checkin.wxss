@@ -1,0 +1,37 @@
+/* pages/checkin-customer/checkin.wxss */
+
+.checkin-chunk{
+  margin: 0 auto;
+}
+.checkin-item{
+  width:100%;
+}
+.checkin-label{
+  display:inline-block;
+  left:0px;
+  position:relative;
+  width:25%;
+}
+.checkin-input{
+  top:5px;
+  border:1px solid #fff;
+  display:inline-block;
+  width:60%;
+  /*background:red;*/
+  position:relative;
+}
+.checkin-textarea{
+  top:5px;
+  border:1px solid #fff;
+  display:inline-block;
+  /* background:red; */
+  position:relative;
+  height:50px;
+}
+.left-25p{
+  left: 25%;
+  position: relative;
+}
+.letter-spacing{
+  letter-spacing: 73rpx;
+}

@@ -1,0 +1,47 @@
+<view class="checkin-chunk">
+ <form bindsubmit='checkinSubmit'>
+  <view class='checkin-item'>
+    <label class='checkin-label'>客户电话:</label>
+    <input type='text' class='checkin-input' name='customerPhone' confirm-type='next'></input>
+  </view>
+
+  <view class='checkin-item'>
+    <label class='checkin-label'>客户姓名:</label>
+    <input type='text' confirm-type='next' name='customerName' class='checkin-input'></input>
+  </view>
+
+  <view class='checkin-item'>
+    <label class='checkin-label' decode='true'><span class='letter-spacing'>住</span>址:</label>
+     <picker mode="region" name='location' value="{{region}}" bindchange='bindRegionChange' style='display:inline-block;'>
+    <view class="picker">
+      {{region[0]}} {{region[1]}} {{region[2]}}
+    </view>
+  </picker>
+     <input type='text' confirm-type='next' name='address' class='checkin-input left-25p' placeholder='详细地址'></input> 
+  </view>
+
+  <view class='checkin-item'>
+    <label class='checkin-label'><span class='letter-spacing'>标</span>签:</label>
+      <picker name='status' mode='selector' bindchange="bindPickerChange" range="{{array}}" range-key='name' style='display:inline-block;'>
+        <view class="picker">
+          <text>{{array[index].name}}</text> 
+        </view>
+      </picker>
+  </view>
+
+  <view class='checkin-item'>
+    <view style='display:inline-block;width:25%;'>
+      <label class='checkin-label' style='top:-30px;width:100%'><span class='letter-spacing'>备</span>注:</label>
+    </view>
+    <view style='display:inline-block;width:60%;'>
+      <textarea name='remarks' confirm-type='done' class='checkin-textarea' style='width:100%;'></textarea>
+    </view>
+  </view>
+
+  <view >
+    <button formType='submit'>保存</button>
+    <button bindtap='checkinCancel'>取消</button>
+  </view>
+
+  </form>
+</view>

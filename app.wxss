@@ -1,14 +1,5 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
-
+@import "/style/weui.wxss";
 /**index.wxss**/
 .userinfo {
   display: flex;
@@ -25,4 +16,46 @@
 
 .userinfo-nickname {
   color: #aaa;
+}
+
+
+
+page {
+  font-family: "微软雅黑";
+  color: #444;
+  background: #eee;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.header_inform {
+  border-bottom: 1px #eee solid;
+  padding: 15px 0;
+  background: #fec53a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  box-sizing: border-box;
+}
+.header_inform_left {
+  display: flex;
+  align-items: center;
+}
+.header_inform_left image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 120rpx;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+.header_inform_left text {
+  font-size: 36rpx;
+  color: #fff;
 }

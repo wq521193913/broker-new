@@ -10,6 +10,11 @@ Page({
     userInfo: {},
     hasUserInfo: true,
   },
+  checkinPage: function(){
+    wx.navigateTo({
+      url: '../checkin/checkin',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
