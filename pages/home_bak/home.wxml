@@ -1,0 +1,54 @@
+<view class='home-view'>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view>
+    <button class='btn' bindtap='checkinPage'>登记客户</button> 
+    <button class='btn' open-type='share'>邀请好友</button> 
+  </view>
+
+  <!-- <view>
+  <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+     <block wx:for="{{msgList}}">
+       <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
+         <swiper-item>
+           <view class="swiper_item">{{item.title}}</view>
+           <view class="swiper_item">{{item.title}}</view>
+           <view class="swiper_item">{{item.title}}</view>
+           <view class="swiper_item">{{item.title}}</view>
+         </swiper-item>
+       </navigator>
+     </block>
+   </swiper>
+  </view> -->
+
+  <view>
+  <view>1 显示完后再显示</view>
+<view class="example">
+  <view class="marquee_box">
+    <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
+      {{text}}
+    </view>
+  </view>
+</view>
+<view>2 出现白边后即显示</view>
+<view class="example">
+  <view class="marquee_box">
+    <view class="marquee_text" style="{{orientation}}:{{marqueeDistance2}}px;font-size: {{size}}px;">
+      <text>{{text}}</text>
+      <text wx:if="{{marquee2copy_status}}" style="margin-left:{{marquee2_margin}}px;">{{text}}</text>
+    </view>
+  </view>
+</view>
+  </view>
+<view style='height:20%'>
+<web-view src='http://127.0.0.1:8762/static/test'>
+  </web-view>
+</view>
+  
+</view>

@@ -1,0 +1,11 @@
+<!-- 提现 -->
+<view class='withdrawal-chunk'>
+  <view>
+    <label>提现金额:</label>
+    <input type='number' style='border:1px solid #ddd;' value='{{inputVal}}'></input>
+    <label style='font-size:12px;'>钱包余额￥{{balance}}, </label> 
+    <label style='color:blue;font-size:12px;' bindtap='withdrawalAll'> 全部提现</label>
+  </view>
+  <button>提现</button>
+
+</view>

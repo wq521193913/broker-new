@@ -15,6 +15,11 @@ Page({
       url: '../home/home'
     })
   },
+  registerPage: function(){
+    wx.navigateTo({
+      url: '/pages/invite/invite',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -42,6 +47,14 @@ Page({
         }
       })
     }
+    // wx.navigateTo({
+    //   url: '/pages/home/home'
+    // })
+  },
+  onShow: function(){
+    var _this = this;
+    console.log(_this.userInfo);
+    
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -50,5 +63,42 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  }
+
+   /**
+   * 用户点击右上角分享
+   */
+  ,onShareAppMessage: function (res) {
+
+    if (res.from == 'button') {
+      return {
+        title: '赚外快,就是这么简单',
+        path: '/pages/invite/invite?inviteCode=',
+        imageUrl: '/image/20180314164849.png',
+        success: function (res) {
+          // 转发成功
+          console.log(res);
+        },
+        fail: function (res) {
+          // 转发失败
+          console.log(res);
+        }
+      }
+    } else {
+      return {
+        title: '家装,您的首选',
+        path: '/pages/index/index',
+        imageUrl: '/image/20180314164849.png',
+        success: function (res) {
+          // 转发成功
+          console.log(res);
+        },
+        fail: function (res) {
+          // 转发失败
+          console.log(res);
+        }
+      }
+    }
+
   }
 })

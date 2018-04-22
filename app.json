@@ -3,12 +3,39 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/home/home",
-    "pages/checkin/checkin"
+    "pages/checkin/checkin",
+    "pages/website/website",
+    "pages/user/user",
+    "pages/wallet/wallet",
+    "pages/wallet-detail/wallet-detail",
+    "pages/withdrawal/withdrawal",
+    "pages/register/register",
+    "pages/invite/invite",
+    "pages/common/common"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#fec53a",
+    "navigationBarTitleText": "broker",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#fec53a",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/website/website",
+        "text": "官网"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
   }
 }

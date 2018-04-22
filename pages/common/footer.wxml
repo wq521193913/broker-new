@@ -1,0 +1,13 @@
+<template name="footer">
+<view class='footer'>
+  <navigator url='/pages/index/index' open-type='reLaunch'>
+首页
+  </navigator>
+    <navigator url='/pages/website/website' open-type='reLaunch'>
+官网
+  </navigator>
+    <navigator url='/pages/user/user' open-type='reLaunch'>
+我的
+  </navigator>
+</view>
+</template>

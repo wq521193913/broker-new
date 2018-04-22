@@ -1,0 +1,10 @@
+/* pages/register/register.wxss */
+.register-chunk{
+  margin: 0 auto;
+}
+.register-item{
+  border: 1px solid #ddd;
+}
+.register-item input{
+  border: 1px solid #fff;
+}
