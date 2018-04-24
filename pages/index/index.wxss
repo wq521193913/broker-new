@@ -19,3 +19,21 @@
 .usermotto {
   margin-top: 200px;
 }
+.register{
+  float: right;
+  color: blue;
+  top: 0px;
+  right: 10px;
+  position: absolute;
+}
+.btn-view{
+  min-width: 100%;
+  width: 100%;
+}
+.index-btn{
+  display: inline-block;
+  width: 50%;
+}
+.marquee ul>li{
+  display: block;
+}

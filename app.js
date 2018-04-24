@@ -26,7 +26,7 @@ App({
             wx.request({
       url: this.serverUrl + "/static/wxLogin",
       method: 'POST',
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      header: {'content-type': 'application/x-www-form-urlencoded'},
       data: {
         code: this.globalData.code,
         wxNickName: this.globalData.userInfo.nickName,

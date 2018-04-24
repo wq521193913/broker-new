@@ -9,6 +9,11 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  checkinPage: function(){
+    wx.navigateTo({
+      url: '/pages/checkin/checkin',
+    })
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -47,9 +52,6 @@ Page({
         }
       })
     }
-    // wx.navigateTo({
-    //   url: '/pages/home/home'
-    // })
   },
   onShow: function(){
     var _this = this;
