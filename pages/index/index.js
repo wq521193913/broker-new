@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+const util = require("../../utils/util.js")
 const app = getApp()
 
 Page({
@@ -7,6 +8,7 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
+    session_3rd:'',
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   checkinPage: function(){
@@ -29,7 +31,8 @@ Page({
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+        hasUserInfo: true,
+        session_3rd: app.globalData.session_3rd
       })
     } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -37,7 +40,8 @@ Page({
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+          hasUserInfo: true,
+          session_3rd: app.globalData.session_3rd
         })
       }
     } else {
@@ -47,7 +51,8 @@ Page({
           app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
-            hasUserInfo: true
+            hasUserInfo: true,
+            session_3rd: app.globalData.session_3rd
           })
         }
       })
@@ -55,8 +60,7 @@ Page({
   },
   onShow: function(){
     var _this = this;
-    console.log(_this.userInfo);
-    
+    app.userLogin();
   },
   getUserInfo: function(e) {
     console.log(e)

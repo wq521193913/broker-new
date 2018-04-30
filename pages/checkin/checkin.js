@@ -1,6 +1,7 @@
 // pages/checkin-customer/checkin.js
-var util = require("../../utils/util.js")
+const util = require("../../utils/util.js")
 const app = getApp()
+
 Page({
   
   /**
@@ -24,7 +25,7 @@ Page({
       })
         return
     }
-    wx.request({
+    util.wxRequest({
       url: app.serverUrl+'/customer/insertCustomer',
       method: 'POST',
       data:{

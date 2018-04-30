@@ -1,32 +1,11 @@
 //app.js
 App({
   serverUrl: "http://127.0.0.1:8762/",
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-    var _this = this;
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res);
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        this.globalData.code = res.code;
-        wx.getUserInfo({
-          data: {
-            withCredentials: true
-          },
-          success: res => {
-            wx.setStorageSync("userInfo", res.userInfo)
-            this.globalData.userInfo = res.userInfo;
-            this.globalData.encryptedData = res.encryptedData;
-            this.globalData.iv = res.iv;
-
-            wx.request({
+  userLogin: function(){
+    wx.request({
       url: this.serverUrl + "/static/wxLogin",
       method: 'POST',
-      header: {'content-type': 'application/x-www-form-urlencoded'},
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
       data: {
         code: this.globalData.code,
         wxNickName: this.globalData.userInfo.nickName,
@@ -51,11 +30,36 @@ App({
         console.log(res);
       }
     });
-            // this.userLogin();
-          }
-        });
+  },
+  getWxUserInfo: function(){
+    wx.getUserInfo({
+      data: {
+        withCredentials: true
+      },
+      success: res => {
+        wx.setStorageSync("userInfo", res.userInfo)
+        this.globalData.userInfo = res.userInfo;
+        this.globalData.encryptedData = res.encryptedData;
+        this.globalData.iv = res.iv;
+      }
+    });
+  },
+  wxLogin: function(){
+    wx.login({
+      success: res => {
+        console.log(res);
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        this.globalData.code = res.code;
       }
     })
+  },
+  onLaunch: function () {
+    // 展示本地存储能力
+    var _this = this;
+    // 登录
+    _this.wxLogin();
+    _this.getWxUserInfo();
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
