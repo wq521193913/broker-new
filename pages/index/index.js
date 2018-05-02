@@ -58,9 +58,18 @@ Page({
       })
     }
   },
+  onReady: function(){
+    app.userLogin();
+    if(app.userInfo){
+      app.userLogin();
+    }else{
+
+    }
+    
+  },
   onShow: function(){
     var _this = this;
-    app.userLogin();
+    
   },
   getUserInfo: function(e) {
     console.log(e)
