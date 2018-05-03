@@ -1,55 +1,30 @@
 //app.js
 App({
   serverUrl: "http://127.0.0.1:8762/",
-  userLogin: function(){
-    wx.request({
-      url: this.serverUrl + "/static/wxLogin",
-      method: 'POST',
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        code: this.globalData.code,
-        wxNickName: this.globalData.userInfo.nickName,
-        wxCity: this.globalData.userInfo.city,
-        wxProvince: this.globalData.userInfo.province,
-        wxCountry: this.globalData.userInfo.country,
-        wxAvatarUrl: this.globalData.userInfo.avatarUrl,
-        encryptedData: this.globalData.encryptedData,
-        iv: this.globalData.iv
-      },
-      dataType: 'json',
-      success: function (res) {
-        console.log(res.data);
-        wx.setStorageSync("session_3rd", res.data.data.session_3rd);
-        wx.setStorageSync("isRegister", res.data.data.isRegister);
-        _this.globalData.session_3rd = res.data.data.session_3rd;
-        _this.globalData.isRegister = res.data.data.isRegister;
-        _this.globalData.encryptedData = null;
-        _this.globalData.iv = null;
-      },
-      fail: function (res) {
-        console.log(res);
-      }
-    });
-  },
+  
   getWxUserInfo: function(){
+    let _this = this;
     wx.getUserInfo({
       data: {
         withCredentials: true
       },
       success: res => {
+        console.log(2);
         wx.setStorageSync("userInfo", res.userInfo)
-        this.globalData.userInfo = res.userInfo;
-        this.globalData.encryptedData = res.encryptedData;
-        this.globalData.iv = res.iv;
+        _this.globalData.userInfo = res.userInfo;
+        _this.globalData.encryptedData = res.encryptedData;
+        _this.globalData.iv = res.iv;
       }
     });
+    
   },
   wxLogin: function(){
+    let _this = this;
     wx.login({
       success: res => {
         console.log(res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        this.globalData.code = res.code;
+        _this.globalData.code = res.code;
       }
     })
   },
