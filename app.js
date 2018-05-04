@@ -9,7 +9,6 @@ App({
         withCredentials: true
       },
       success: res => {
-        console.log(2);
         wx.setStorageSync("userInfo", res.userInfo)
         _this.globalData.userInfo = res.userInfo;
         _this.globalData.encryptedData = res.encryptedData;
