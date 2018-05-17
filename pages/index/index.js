@@ -78,22 +78,21 @@ Page({
     }
 
   },
-  onReady: function(){
-    this.userLogin();
-  },
-  onShow: function(){
-    var _this = this;
-    
-  },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    this.userLogin();
+  },
+  onReady: function(){
+    
+  },
+  onShow: function(){
+    var _this = this;
   }
-
    /**
    * 用户点击右上角分享
    */

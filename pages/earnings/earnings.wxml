@@ -1,0 +1,8 @@
+<!-- 待收益 -->
+<view class='earnings-chunk'>
+ 
+  <view class='earnings-item' wx:for="{{earningList}}" wx:key="itme">
+    <text>{{item.earningSource}} {{item.earningAmount}}元</text>
+  </view>
+
+</view>

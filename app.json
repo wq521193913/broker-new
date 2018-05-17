@@ -11,7 +11,8 @@
     "pages/withdrawal/withdrawal",
     "pages/register/register",
     "pages/invite/invite",
-    "pages/common/common"
+    "pages/common/common",
+    "pages/earnings/earnings"
   ],
   "window": {
     "backgroundTextStyle": "light",
