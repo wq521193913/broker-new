@@ -22,12 +22,13 @@ Page({
     var _this = this;
     util.wxRequest({
       url: app.serverUrl + '/brokerEarning/getEarningPageList',
+      data:{"status":0},
       dataType: 'json',
       success: function(res){
         console.log(res);
-        // _this.setData({
-        //   earningList: res.data.data
-        // })
+        _this.setData({
+          earningList: res.data.data
+        })
       }
     })
   },

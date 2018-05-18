@@ -1,6 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-<view class='btn register' bindtap='registerPage'>注册</view> 
+<block wx:if="{{app.globalData.isRegister}}">
+  <view class='btn register' bindtap='registerPage'>注册</view> 
+</block>
+
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登录 </button>
     

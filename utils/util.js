@@ -23,7 +23,8 @@ const checkPhone = phone => {
 }
 
 const wxRequest = options => {
-  
+    //TODO 检查是否为登录有效状态
+
     options = options || {};
     options.url = options.url || '';
     options.method = options.method || 'GET';
@@ -32,8 +33,8 @@ const wxRequest = options => {
       "session_3rd": wx.getStorageSync("session_3rd"),
       "content-type":'application/x-www-form-urlencoded'
     };
-    options.success = options.success || function () {};
-    options.fails = options.fail || function (res){console.log(res)};
+    options.success = options.success || function (res) {console.log(res)};
+    options.fails = options.fail || function (xhr) { console.log(xhr)};
 
     wx.request({
       url: options.url,

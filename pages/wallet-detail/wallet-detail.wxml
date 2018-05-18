@@ -1,2 +1,10 @@
-<!-- 钱包明细 -->
+<!-- 钱包明细 
 <text>pages/wallet-detail/wallet-detail.wxml</text>
+-->
+
+<view class='wallet-detail-view'>
+
+<view class='wallet-detail-item' wx:for="{{walletDetailList}}" wx:key="itme">
+    <text>{{item.earningSource}} {{item.earningAmount}}元</text>
+  </view>
+</view>

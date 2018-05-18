@@ -9,7 +9,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     session_3rd:'',
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isRegister:false
   },
   checkinPage: function(){
     wx.navigateTo({
@@ -28,16 +29,15 @@ Page({
     })
   },
   onLoad: function () {
-    
+   
   },
   userLogin: function () {
     let _this = this;
     if (app.globalData.userInfo && app.globalData.code) {
-      console.log(3)
       wx.request({
         url: app.serverUrl + "/static/wxLogin",
         method: 'POST',
-        header: { 'content-type': 'application/x-www-form-urlencoded' },
+        header: {'content-type': 'application/x-www-form-urlencoded' },
         data: {
           code: app.globalData.code,
           wxNickName: app.globalData.userInfo.nickName,
@@ -51,16 +51,26 @@ Page({
         dataType: 'json',
         success: function (res) {
           console.log(res.data);
-          wx.setStorageSync("session_3rd", res.data.data.session_3rd);
-          wx.setStorageSync("isRegister", res.data.data.isRegister);
-          app.globalData.session_3rd = res.data.data.session_3rd;
-          app.globalData.isRegister = res.data.data.isRegister;
-          app.globalData.encryptedData = null;
-          app.globalData.iv = null;
-          _this.setData({
-            userInfo: app.globalData.userInfo,
-            hasUserInfo: true
-          })
+          let source = res.data
+          if(source.success){
+            wx.setStorageSync("session_3rd", res.data.data.session_3rd);
+            wx.setStorageSync("isRegister", res.data.data.isRegister);
+            app.globalData.session_3rd = res.data.data.session_3rd;
+            app.globalData.isRegister = res.data.data.isRegister;
+            app.globalData.encryptedData = null;
+            app.globalData.iv = null;
+            _this.setData({
+              userInfo: app.globalData.userInfo,
+              hasUserInfo: true
+            })
+          }else{
+            wx.showToast({
+              title: source.msg || '登录失败',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+          
         },
         fail: function (res) {
           console.log(res);
@@ -69,7 +79,6 @@ Page({
       if (app.globalData.intervalId) {
         clearInterval(app.globalData.intervalId)
       }
-
     } else {
       if (app.globalData.intervalId) {
         clearInterval(app.globalData.intervalId)
