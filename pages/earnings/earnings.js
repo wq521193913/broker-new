@@ -27,7 +27,7 @@ Page({
       success: function(res){
         console.log(res);
         _this.setData({
-          earningList: res.data.data
+          earningList: res.data.data.rows
         })
       }
     })
