@@ -1,6 +1,6 @@
 //app.js
 App({
-  serverUrl: "http://127.0.0.1:8762/",
+  serverUrl: "http://127.0.0.1:8763/",
   
   getWxUserInfo: function(){
     let _this = this;

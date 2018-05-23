@@ -42,7 +42,10 @@ Page({
       success: function(res){
         console.log(res);
         if(res.data.success){
-
+          wx.showToast({
+            title: '保存成功',
+            icon:'SUCCESS'
+          },800)
         }else{
           wx.showToast({
             title: res.data.msg || '操作失败',

@@ -53,7 +53,7 @@ Page({
           console.log(res.data);
           let source = res.data
           if(source.success){
-            wx.setStorageSync("session_3rd", res.data.data.session_3rd);
+            wx.setStorageSync("token", res.data.data.token);
             wx.setStorageSync("isRegister", res.data.data.isRegister);
             app.globalData.session_3rd = res.data.data.session_3rd;
             app.globalData.isRegister = res.data.data.isRegister;

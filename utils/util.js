@@ -30,7 +30,7 @@ const wxRequest = options => {
     options.method = options.method || 'GET';
     options.data = options.data || '';
     options.header = {
-      "session_3rd": wx.getStorageSync("session_3rd"),
+      "token": wx.getStorageSync("token"),
       "content-type":'application/x-www-form-urlencoded'
     };
     options.success = options.success || function (res) {console.log(res)};

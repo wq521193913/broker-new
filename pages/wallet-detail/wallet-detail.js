@@ -1,4 +1,7 @@
 // pages/wallet-detail/wallet-detail.js
+
+const util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
@@ -19,7 +22,7 @@ Page({
     var _this = this;
     util.wxRequest({
       url: app.serverUrl + '/brokerEarning/getEarningPageList',
-      data: { "status": 1 },
+      data: {"status":1},
       dataType: 'json',
       success: function (res) {
         console.log(res);
@@ -69,13 +72,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   
   }
 })
