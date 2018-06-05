@@ -88,9 +88,10 @@ Page({
 
   },
   getUserInfo: function (e) {
+    let _this = this;
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-    this.setData({
+    _this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
