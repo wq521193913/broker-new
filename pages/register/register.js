@@ -24,7 +24,7 @@ Page({
       return;
     }
     util.wxRequest({
-      url: app.serverUrl + '/brokerUser/insertBrokerUser',
+      url: '/brokerUser/insertBrokerUser',
       method: 'POST',
       data: {
         brokerAddress: e.detail.value.brokerAddress,

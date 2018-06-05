@@ -26,7 +26,7 @@ Page({
         return
     }
     util.wxRequest({
-      url: app.serverUrl+'/customer/insertCustomer',
+      url: '/customer/insertCustomer',
       method: 'POST',
       data:{
         customerPhone: e.detail.value.customerPhone,
@@ -152,11 +152,4 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

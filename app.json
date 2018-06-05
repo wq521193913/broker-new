@@ -12,7 +12,8 @@
     "pages/register/register",
     "pages/invite/invite",
     "pages/common/common",
-    "pages/earnings/earnings"
+    "pages/earnings/earnings",
+    "pages/customer/customer"
   ],
   "window": {
     "backgroundTextStyle": "light",

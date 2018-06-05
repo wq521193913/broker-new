@@ -26,7 +26,7 @@
     <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_small-appmsg">
             <view class="weui-cells weui-cells_in-small-appmsg">
-                <navigator url="/pages/wallet/wallet" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <navigator url="/pages/customer/customer" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                     <view class="weui-cell__hd"><image src="../../image/user_icon.png" /></view>
                     <view class="weui-cell__bd weui-cell_primary">
                         <view>我的客户</view>

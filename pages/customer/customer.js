@@ -1,36 +1,40 @@
-// pages/earnings/earnings.js
+// pages/customer/customer.js
+const util = require("../../utils/util.js")
+const app = getApp()
 
-const util = require('../../utils/util.js');
-const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    earningList:[
-      {earningSource: '客户小明,已签装修合同.获得待收佣金', earningAmount:'5000.00'},
-      {earningSource: '邀请好友成功.获得待收奖励', earningAmount: '100.00' }
-
-    ]
+    customerList:[]
   },
-
+  getCustomerList: function(params){
+    var _this = this;
+    util.wxRequest({
+      url: '/customer/queryMyCustomer',
+      data: params,
+      dataType:'json',
+      success: function(res){
+        let data = res.data;
+        if(data.success){
+          _this.setData({
+            customerList: data.data
+          })
+        }else{
+          console.log(data.msg);
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var _this = this;
-    util.wxRequest({
-      url: '/brokerEarning/getEarningPageList',
-      data:{"status":0},
-      dataType: 'json',
-      success: function(res){
-        console.log(res);
-        _this.setData({
-          earningList: res.data.data.rows
-        })
-      }
-    })
+    var params ={};
+    _this.getCustomerList(params);
   },
 
   /**
@@ -75,10 +79,4 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
