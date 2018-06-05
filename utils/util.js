@@ -22,6 +22,8 @@ const checkPhone = phone => {
   return false;
 }
 
+const serverUrl = "http://127.0.0.1:8763/"
+
 const wxRequest = options => {
     //TODO 检查是否为登录有效状态
 
@@ -37,7 +39,7 @@ const wxRequest = options => {
     options.fails = options.fail || function (xhr) { console.log(xhr)};
 
     wx.request({
-      url: options.url,
+      url: serverUrl + options.url,
       method: options.method,
       data: options.data,
       header: options.header,

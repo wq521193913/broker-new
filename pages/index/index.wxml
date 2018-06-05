@@ -12,13 +12,31 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view>
+  <view style='width:100%'>
     <view class='btn-view'>
       <button class='btn index-btn' bindtap='checkinPage'>登记客户</button> 
       <button class='btn index-btn' open-type='share'>邀请好友</button> 
     </view>
+
+    <view>
+
+    </view>
     
-    <view class='marquee'>
+
+    <!-- <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2500" duration="5000">
+      <block wx:for="{{msgList}}" wx:for-index="{{ index }}">
+          <swiper-item>
+            <block wx:for="{{item}}" wx:for-item="vo">
+              <view class="swiper_item">{{vo.title}}</view>
+              <li>
+              <span>{{vo.customerName}} </span>
+              <span>{{vo.desc}}</span>
+            </li>
+            </block>
+          </swiper-item>
+      </block>
+    </swiper> -->
+     <view class='marquee'>
       <ul>
         <li>
           <span>张** </span>
@@ -49,6 +67,6 @@
           <span>客户已在装修,获得佣金5000元</span>
         </li>
       </ul>
-    </view>
+    </view> 
   </view>
 </view>

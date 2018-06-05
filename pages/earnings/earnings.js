@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
     var _this = this;
     util.wxRequest({
-      url: app.serverUrl + '/brokerEarning/getEarningPageList',
+      url: '/brokerEarning/getEarningPageList',
       data:{"status":0},
       dataType: 'json',
       success: function(res){

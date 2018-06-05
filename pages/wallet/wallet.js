@@ -20,7 +20,7 @@ Page({
     var _this = this;
     
     util.wxRequest({
-      url: app.serverUrl + '/brokerAccount/getAccountBySession',
+      url: '/brokerAccount/getAccountBySession',
       method: 'POST',
       dataType: 'json',
       success: function (res) {

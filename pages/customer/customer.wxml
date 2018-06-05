@@ -1,2 +1,12 @@
-<!--pages/customer/customer.wxml-->
-<text>pages/customer/customer.wxml</text>
+<!--我的客户-->
+<view class='customer-view'>
+  <scroll-view scroll-y='true'>
+    <block wx:for='{{customerList}}' wx:key='item'>
+      <view class="customer-item">
+        <text selectable='true'>{{item.customerName}}</text>
+        <text selectable='true'> {{item.customerPhone}}</text>
+        <text selectable='true'> {{item.address}}</text>
+      </view>
+    </block>
+  </scroll-view>
+</view>

@@ -10,7 +10,19 @@ Page({
     hasUserInfo: false,
     session_3rd:'',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isRegister:false
+    isRegister:false,
+    // msgList:[
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    //   { url: "张**", title: "客户已在装修,获得佣金5000元" },
+    // ]
+
   },
   checkinPage: function(){
     wx.navigateTo({
@@ -28,14 +40,39 @@ Page({
       url: '/pages/invite/invite',
     })
   },
+  /**
+   * 获取n个一组，显示swiper一屏
+   * @param {array} arr 数组
+   * @param {int} n 多少一屏
+   */
+  swiperItemArr: function (arr, n) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      var a = (i + 1) % n;      //索引值余数
+      var b = Math.floor(i / n);  //索引值倍数，向下取整
+
+      //如果余数等于1，则创建一个数组，并push元素
+      if (a == 1) {
+        newArr[b] = [];
+        newArr[b].push(arr[i]);
+      } else {
+        newArr[b].push(arr[i]);
+      }
+    }
+    return newArr;
+  },
   onLoad: function () {
-   
+    // var that = this;
+
+    // that.setData({
+    //   msgList: that.swiperItemArr(that.data.msgList, 3)
+    // })
   },
   userLogin: function () {
     let _this = this;
     if (app.globalData.userInfo && app.globalData.code) {
-      wx.request({
-        url: app.serverUrl + "/static/wxLogin",
+      util.wxRequest({
+        url: "/static/wxLogin",
         method: 'POST',
         header: {'content-type': 'application/x-www-form-urlencoded' },
         data: {

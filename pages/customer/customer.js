@@ -1,18 +1,40 @@
 // pages/customer/customer.js
+const util = require("../../utils/util.js")
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    customerList:[]
   },
-
+  getCustomerList: function(params){
+    var _this = this;
+    util.wxRequest({
+      url: '/customer/queryMyCustomer',
+      data: params,
+      dataType:'json',
+      success: function(res){
+        let data = res.data;
+        if(data.success){
+          _this.setData({
+            customerList: data.data
+          })
+        }else{
+          console.log(data.msg);
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var _this = this;
+    var params ={};
+    _this.getCustomerList(params);
   },
 
   /**
@@ -57,10 +79,4 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
