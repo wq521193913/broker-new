@@ -17,9 +17,10 @@
       <button class='btn index-btn' bindtap='checkinPage'>登记客户</button> 
       <button class='btn index-btn' open-type='share'>邀请好友</button> 
     </view>
-
     <view>
-
+      <view>
+        
+      </view>
     </view>
     
 
@@ -36,7 +37,7 @@
           </swiper-item>
       </block>
     </swiper> -->
-     <view class='marquee'>
+     <!-- <view class='marquee'>
       <ul>
         <li>
           <span>张** </span>
@@ -67,6 +68,6 @@
           <span>客户已在装修,获得佣金5000元</span>
         </li>
       </ul>
-    </view> 
+    </view>  -->
   </view>
 </view>

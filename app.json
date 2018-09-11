@@ -17,7 +17,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fec53a",
+    "navigationBarBackgroundColor": "#ddd",
     "navigationBarTitleText": "broker",
     "navigationBarTextStyle": "black"
   },
